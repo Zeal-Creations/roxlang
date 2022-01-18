@@ -1,0 +1,19 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.15)
+PROJECT(RoxLang)
+
+SET(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/release)
+
+# include files
+INCLUDE_DIRECTORIES(
+    ${CMAKE_CURRENT_SOURCE_DIR}/core/include
+)
+
+# source files
+FILE(GLOB SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/core/source/*.cpp)
+
+ADD_EXECUTABLE(roxlang ${CMAKE_CURRENT_SOURCE_DIR}/test/test.cpp ${SRC_FILES})
+TARGET_LINK_LIBRARIES(roxlang 
+                      -lpthread
+                      -lm
+)
